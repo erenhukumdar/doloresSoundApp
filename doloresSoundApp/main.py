@@ -13,7 +13,7 @@ from kairos_face import enroll
 import ctypes
 
 
-class SoundApp(object):
+class LisnrApp(object):
     subscriber_list = []
     loaded_topic = ""
     counter = 0
@@ -47,7 +47,7 @@ class SoundApp(object):
         print "Starting app..."
         # @TODO: insert whatever the app should do to start
 
-        self.show_screen()
+        # self.show_screen()
         # ToDo: reactivate cleanup code
         self.start_dialog()
         self.logger.info("Started!")
@@ -103,7 +103,6 @@ class SoundApp(object):
         event_connection = event_subscriber.signal.connect(self.test)
         self.subscriber_list.append([event_subscriber, event_connection])
 
-
         self.logger.info("Event created!")
 
     @qi.nobind
@@ -123,7 +122,7 @@ class SoundApp(object):
         self.logger.info("Loading dialog")
         dialog = self.session.service("ALDialog")
         dir_path = os.path.dirname(os.path.realpath(__file__))
-        topic_path = os.path.realpath(os.path.join(dir_path, "sound", "sound_enu.top"))
+        topic_path = os.path.realpath(os.path.join(dir_path, "listen_code", "listen_code_enu.top"))
         self.logger.info("File is: {}".format(topic_path))
         self.loaded_topic = dialog.loadTopic(topic_path)
         dialog.activateTopic(self.loaded_topic)
@@ -313,15 +312,18 @@ class SoundApp(object):
             self.logger.error(e)
 
     @qi.bind(methodName="testSound", returnType=qi.Void)
-    def test(self):
-        my_test_lib = ctypes.cdll.LoadLibrary('/Lisnr/PyLISNRCore.so')
+    def test(self, value):
+        dir_path = os.path.dirname(os.path.realpath(__file__))
+        lib_path = os.path.realpath(os.path.join(dir_path, "Lisnr", "PyLISNRCore.so"))
+        self.logger.info(lib_path)
+        my_test_lib = ctypes.cdll.LoadLibrary(lib_path)
 
 if __name__ == "__main__":
     # with this you can run the script for tests on remote robots
     # run : python main.py --qi-url 123.123.123.123
     app = qi.Application(sys.argv)
     app.start()
-    service_instance = SoundApp(app)
+    service_instance = LisnrApp(app)
     service_id = app.session.registerService(service_instance.service_name, service_instance)
     service_instance.start_app()
     app.run()

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" uuid="lisnrapp-739f14">
+ <names>
+  <name lang="en_US">LisnrApp</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="behavior_1">
+   <userRequestable/>
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <dialogContent topicName="listen_code" typeVersion="1.0">
+   <topic language="en_US" path="listen_code/listen_code_enu.top"/>
+  </dialogContent>
+ </contents>
+ <services>
+  <service name="LisnrApp" autorun="false" execStart="main.py"/>
+ </services>
+ <executableFiles>
+  <file path="main.py"/>
+ </executableFiles>
+</package>
