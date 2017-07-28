@@ -10,4 +10,49 @@ language: enu
 # Replying to speech
 #u:(~hello) ~hello
 
-u:(test) $SoundApp/Test=1
+concept:(greetingSound) Please open your mobile app and wait me. I will play a sound for you.Are you ready? 
+concept:(favorite) This sound is my favourite. Listen carefully!
+concept:(notReady) OK! I am a patient robot! I can wait. If you want to quit simply say quit or exit
+concept:(timeError) I am sorry! Time is up! Would you like to try again?
+concept:(clearError) Upps something happened. I feel a little confused. You can try with another method!
+concept:(nothing) I couldn't identify your card in the system. You can try with another method.
+concept:(found) Great! Now we can continue!
+concept:(yes) yes
+concept:(no) no
+concept:(choiceYes) Great! I believe this time it will work!
+concept:(choiceNo) OK. Lets continue.
+concept:(executionError) ["I am sorry, I couldn't do your request, I feel a little sick. I should rest for a while."]
+concept:(exitApp) "OK! Lets see authentication menu again."
+concept:(exit) ["quit" "exit"]
+concept:(notUnderstood) I am sorry! I couldn't understand you. You can simply say yes or no.
+concept:(humanThink) ^rand["Are you there?" "don't be shy" "Do you still need time to think"]
+
+u:(e:SoundAuth/Found) ^gotoReactivate(found)
+u:(e:SoundAuth/TimeError) ^gotoReactivate(timeError)
+u:(e:SoundAuth/Nothing) ^gotoReactivate(nothingFound)
+u:(e:SoundAuth/ExecutionError) ^gotoReactivate(execError)
+u:(e:SoundAuth/ExitApp) ~exitApp
+
+proposal:%startSoundAuth ~greetingSound $SoundAuth/NoSpeak=0
+    u1:(~yes) ~favorite $SoundAuth/PlaySound=1
+    u1:(~no) ~notReady ^stayInScope
+    u1:(~exit) $SoundAuth/ExitApp=1
+    u1:(e:Dialog/NoOneSpeak10 $SoundAuth/NoSpeak==0) $SoundAuth/NoSpeak=1 ^start(animations/Stand/Gestures/ComeOn_1) ~humanThink ^stayInScope
+    u1:(e:Dialog/NoOneSpeak10 $SoundAuth/NoSpeak==1) ~exitApp $SoundAuth/ExitApp=1
+    u1:(e:Dialog/NotUnderstood2) ~notUnderstood ^stayInScope
+
+proposal:%found ~found $SoundAuth/Redirect=1
+
+proposal:%timeError ~timeError $SoundAuth/NoSpeak=0
+    u1:(~yes) ~choiceYes ~favorite $SoundAuth/PlaySound=1
+    u1:(~no)  ~choiceNo $SoundAuth/Redirect=1
+    u1:(~exit) $SoundAuth/ExitApp=1
+    u1:(e:Dialog/NoOneSpeak10 $SoundAuth/NoSpeak==0) $SoundAuth/NoSpeak=1 ^start(animations/Stand/Gestures/ComeOn_1) ~humanThink ^stayInScope
+    u1:(e:Dialog/NoOneSpeak10 $SoundAuth/NoSpeak==1) ~exitApp $SoundAuth/ExitApp=1
+    u1:(e:Dialog/NotUnderstood2) ~notUnderstood ^stayInScope
+
+proposal:%nothingFound ~nothing $SoundAuth/Redirect=1
+
+proposal:%execError ~executionError $SoundAuth/Rest=1
+
+

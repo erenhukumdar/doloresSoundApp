@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+    font: 71%/1.5 Verdana, Sans-Serif;
+    width: 1280px;
+    height: 800px;
+
+    background-image: url("../images/iscep_sound.png");
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: 1280px 800px;
+}
+
+svg {
+   -webkit-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+}
+
+.circle_animation {
+  stroke-dasharray: 440; /* this value is the pixel circumference of the circle */
+  stroke-dashoffset: 440;
+  transition: all 1s linear;
+}
+
+.loader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border: 16px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 16px solid #3498db;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+}
+#loading_container {
+    top: 0;
+    left: 0;
+    width: 1280px;
+    height: 800px;
+    visibility: hidden;
+    position: absolute;
+    background: rgba(0, 0, 0, .5);
+}
+
+.loaderpepper {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -50px 0 0 -50px;
+    width: 100px;
+    height: 100px;
+}
+
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+.leaveapp {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 10px;
+    left: 1120px;
+}
+#exit
+{
+    background: #e27378;
+    border: 5px solid #e27378;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 5%;
+    text-align: center;
+    line-height: 80px;
+    font-size: 80px;
+    color: snow;
+}
+
+
+table {
+    margin: 0 auto; /* or margin: 0 auto 0 auto */
+  }

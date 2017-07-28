@@ -32,9 +32,47 @@
         <File name="utils" src="kairos_face/utils.pyc" />
         <File name="verify" src="kairos_face/verify.py" />
         <File name="verify" src="kairos_face/verify.pyc" />
-        <File name="PyLISNRCore" src="Lisnr/PyLISNRCore.so" />
-        <File name="libLISNRCore" src="Lisnr/libLISNRCore.so" />
         <File name="customerquery" src="customerquery.pyc" />
+        <File name="__init__" src="chirpsdk/__init__.py" />
+        <File name="__init__" src="chirpsdk/__init__.pyc" />
+        <File name="api" src="chirpsdk/api.py" />
+        <File name="api" src="chirpsdk/api.pyc" />
+        <File name="audio" src="chirpsdk/audio.py" />
+        <File name="audio" src="chirpsdk/audio.pyc" />
+        <File name="bitstring" src="chirpsdk/bitstring.py" />
+        <File name="bitstring" src="chirpsdk/bitstring.pyc" />
+        <File name="chirp" src="chirpsdk/chirp.py" />
+        <File name="chirp" src="chirpsdk/chirp.pyc" />
+        <File name="chirpsdk" src="chirpsdk/chirpsdk.py" />
+        <File name="chirpsdk" src="chirpsdk/chirpsdk.pyc" />
+        <File name="conf" src="chirpsdk/conf.py" />
+        <File name="constants" src="chirpsdk/constants.py" />
+        <File name="constants" src="chirpsdk/constants.pyc" />
+        <File name="exceptions" src="chirpsdk/exceptions.py" />
+        <File name="exceptions" src="chirpsdk/exceptions.pyc" />
+        <File name="protocol" src="chirpsdk/protocol.py" />
+        <File name="protocol" src="chirpsdk/protocol.pyc" />
+        <File name="__init__" src="chirpsdk/protocols/__init__.py" />
+        <File name="standard" src="chirpsdk/protocols/standard.json" />
+        <File name="ultrasonic" src="chirpsdk/protocols/ultrasonic.json" />
+        <File name="pyaudio" src="chirpsdk/pyaudio.py" />
+        <File name="pyaudio" src="chirpsdk/pyaudio.pyc" />
+        <File name="util" src="chirpsdk/util.py" />
+        <File name="util" src="chirpsdk/util.pyc" />
+        <File name="_portaudio" src="chirpsdk/_portaudio.so" />
+        <File name="PKG-INFO" src="chirpsdk/PyAudio-0.2.11-py2.7.egg-info/PKG-INFO" />
+        <File name="SOURCES" src="chirpsdk/PyAudio-0.2.11-py2.7.egg-info/SOURCES.txt" />
+        <File name="dependency_links" src="chirpsdk/PyAudio-0.2.11-py2.7.egg-info/dependency_links.txt" />
+        <File name="installed-files" src="chirpsdk/PyAudio-0.2.11-py2.7.egg-info/installed-files.txt" />
+        <File name="top_level" src="chirpsdk/PyAudio-0.2.11-py2.7.egg-info/top_level.txt" />
+        <File name="pepper" src="html/css/pepper.css" />
+        <File name="pepper" src="html/images/pepper.png" />
+        <File name="index" src="html/index.html" />
+        <File name="jquery-2.1.4.min" src="html/js/jquery-2.1.4.min.js" />
+        <File name="loader" src="html/js/loader.js" />
+        <File name="main" src="html/js/main.js" />
+        <File name="qimessaging_helper" src="html/js/qimessaging_helper.js" />
+        <File name="iscep_sound" src="html/images/iscep_sound.png" />
     </Resources>
     <Topics>
         <Topic name="listen_code_enu" src="listen_code/listen_code_enu.top" topicName="listen_code" language="en_US" />
